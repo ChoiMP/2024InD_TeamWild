@@ -66,8 +66,14 @@ public class PlayerController : MonoBehaviour
         hp = MAXHP;
 
         DisableInput();
+
+        FadeSystem.Instance.FadeOut();
     }
 
+    private void Start()
+    {
+        FadeSystem.Instance.FadeOut();
+    }
     private void LateUpdate()
     {
         animator.SetInteger("State", (int)state);
