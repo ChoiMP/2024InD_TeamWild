@@ -10,6 +10,7 @@ public class break_speed : MonoBehaviour
     {
         _myTF = GetComponent<Transform>();
     }
+
     void Update()
     {
         _myTF.Translate(Vector2.left * BackGroud_speed.Instance._speed * Time.deltaTime);
@@ -17,6 +18,15 @@ public class break_speed : MonoBehaviour
         {
             MapGamemanger.Instance._break = false;
             Destroy(gameObject);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Player에 닿았습니다");
+            // 다른 필요한 처리도 여기에 추가할 수 있습니다.
         }
     }
 }

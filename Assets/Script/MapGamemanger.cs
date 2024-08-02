@@ -45,12 +45,14 @@ public class MapGamemanger : MonoBehaviour
         string sceneName = SceneManager.GetActiveScene().name;
 
         int fireCount = 0;
+        float Time = 0.0f;
 
         // 씬 이름에 따라 호출 횟수 결정
         switch (sceneName)
         {
             case "break":
                 fireCount = 2;
+                Time = 1.5f;
                 break;
             default:
                 Debug.LogWarning("Unknown scene name");
@@ -60,16 +62,16 @@ public class MapGamemanger : MonoBehaviour
         // 호출 횟수가 정해졌으면 코루틴 시작
         if (fireCount > 0)
         {
-            StartCoroutine(FireWithDelay(fireCount));
+            StartCoroutine(FireWithDelay(fireCount, Time));
         }
     }
 
-    private IEnumerator FireWithDelay(int count)
+    private IEnumerator FireWithDelay(int count, float time)
     {
         for (int i = 0; i < count; i++)
         {
             Fire(); // Fire 메서드 호출
-            yield return new WaitForSeconds(0.5f); // 1.5초 기다리기
+            yield return new WaitForSeconds(time); // 1.5초 기다리기
         }
     }
 
