@@ -64,6 +64,8 @@ public class PlayerController : MonoBehaviour
         state = PlayerState.Idle;
 
         hp = MAXHP;
+
+        DisableInput();
     }
 
     private void LateUpdate()
@@ -108,14 +110,14 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("슬라이딩 시작");
             boxCollider.size = new Vector2(1, 1);
-            boxCollider.offset = new Vector2(0, -0.5f);
+            boxCollider.offset = new Vector2(0, -0.35f);
             state = PlayerState.Sliding;
         }
         else
         {
             Debug.Log("슬라이딩 끝");
             boxCollider.size = new Vector2(1, 2);
-            boxCollider.offset = new Vector2(0, 0);
+            boxCollider.offset = new Vector2(0, 0.3f);
             state = PlayerState.Running;
         }
     }
@@ -198,6 +200,19 @@ public class PlayerController : MonoBehaviour
     public void EnableInput()
     {
         playerInput.enabled = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("StartRunning"))
+        {
+            EnableInput();
+        }
+        else if (collision.transform.CompareTag("StopRunning"))
+        {
+            DisableInput();
+            OnEndRunning();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
