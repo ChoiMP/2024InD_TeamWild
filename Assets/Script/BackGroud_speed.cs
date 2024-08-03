@@ -13,6 +13,10 @@ public class BackGroud_speed : MonoBehaviour
     public float _xPostion = 0.0f;
     public float _xMove = 0.0f;
 
+    public bool _speedFixed = false;
+
+    public float _gameTime = 55.0f;
+
     private void Start()
     {
         _myTF = GetComponent<Transform>();
@@ -26,6 +30,8 @@ public class BackGroud_speed : MonoBehaviour
 
         // 속도 증가 코루틴 시작
         StartCoroutine(IncreaseSpeedOverTime());
+        // 60초 후에 속도를 고정시키는 코루틴 시작
+        StartCoroutine(FixSpeedAfter60Seconds());
     }
 
 
@@ -33,22 +39,29 @@ public class BackGroud_speed : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _myTF.Translate(Vector2.left * _speed * Time.deltaTime);
-        if (_myTF.position.x < _xPostion)
-        {
-            _myTF.Translate(Vector2.right * _xMove);
-        }
+            _myTF.Translate(Vector2.left * _speed * Time.deltaTime);
+            if (_myTF.position.x < _xPostion)
+            {
+                _myTF.Translate(Vector2.right * _xMove);
+            }
     }
 
     private IEnumerator IncreaseSpeedOverTime()
     {
-        while (true)
+        while (!_speedFixed)
         {
             // 지정된 시간 동안 대기
             yield return new WaitForSeconds(_speedIncreaseInterval);
 
-            // 현재 속도의 0.5배만큼 속도 증가
+            // 현재 속도의 _speedIncreaseFactor배만큼 속도 증가
             _speed += _speed * _speedIncreaseFactor;
         }
+    }
+
+    // 55초 후에 속도를 고정시키는 메서드
+    private IEnumerator FixSpeedAfter60Seconds()
+    {
+        yield return new WaitForSeconds(_gameTime);
+        _speedFixed = true;
     }
 }

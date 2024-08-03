@@ -407,6 +407,8 @@ MonoBehaviour:
   _speedIncreaseInterval: 10
   _xPostion: -47
   _xMove: 118.6
+  _speedFixed: 0
+  _gameTime: 55
 --- !u!1 &331701361
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,6 +901,8 @@ MonoBehaviour:
   _speedIncreaseInterval: 5
   _xPostion: 0
   _xMove: 0
+  _speedFixed: 0
+  _gameTime: 60
 --- !u!1 &1044213791
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,6 +1086,8 @@ MonoBehaviour:
   _speedIncreaseInterval: 10
   _xPostion: -34
   _xMove: 118.6
+  _speedFixed: 0
+  _gameTime: 55
 --- !u!1 &1116840656
 GameObject:
   m_ObjectHideFlags: 0
@@ -1528,6 +1534,8 @@ MonoBehaviour:
   _speedIncreaseInterval: 10
   _xPostion: -34
   _xMove: 118.6
+  _speedFixed: 0
+  _gameTime: 55
 --- !u!1 &1481993366
 GameObject:
   m_ObjectHideFlags: 0
@@ -1634,6 +1642,8 @@ MonoBehaviour:
   _speedIncreaseInterval: 10
   _xPostion: -1000
   _xMove: 118.9
+  _speedFixed: 0
+  _gameTime: 55
 --- !u!1 &1550091959
 GameObject:
   m_ObjectHideFlags: 0
@@ -1735,6 +1745,8 @@ MonoBehaviour:
   _speedIncreaseInterval: 10
   _xPostion: -34
   _xMove: 118.6
+  _speedFixed: 0
+  _gameTime: 55
 --- !u!1 &1623441702
 GameObject:
   m_ObjectHideFlags: 0
@@ -1811,6 +1823,8 @@ MonoBehaviour:
   _speedIncreaseInterval: 10
   _xPostion: -1000
   _xMove: 118.9
+  _speedFixed: 0
+  _gameTime: 55
 --- !u!1 &1697197684
 GameObject:
   m_ObjectHideFlags: 0
@@ -1942,6 +1956,8 @@ MonoBehaviour:
   _speedIncreaseInterval: 10
   _xPostion: -47
   _xMove: 118.6
+  _speedFixed: 0
+  _gameTime: 55
 --- !u!1 &1723574007
 GameObject:
   m_ObjectHideFlags: 0
@@ -2043,3 +2059,5 @@ MonoBehaviour:
   _speedIncreaseInterval: 10
   _xPostion: -47
   _xMove: 118.6
+  _speedFixed: 0
+  _gameTime: 55

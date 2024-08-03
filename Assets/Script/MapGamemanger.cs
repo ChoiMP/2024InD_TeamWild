@@ -71,10 +71,14 @@ public class MapGamemanger : MonoBehaviour
 
     private void Update()
     {
-        if (!_break)
+        if (BackGroud_speed.Instance._speedFixed)
         {
-            Fire();
-            _break = true;
+            if (!_break)
+            {
+                Fire();
+                _break = true;
+
+            }
         }
     }
 }

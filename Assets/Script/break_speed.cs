@@ -13,12 +13,13 @@ public class break_speed : MonoBehaviour
 
     void Update()
     {
-        _myTF.Translate(Vector2.left * BackGroud_speed.Instance._speed * Time.deltaTime);
-        if (_myTF.position.x < -10)
-        {
-            MapGamemanger.Instance._break = false;
-            Destroy(gameObject);
-        }
+            _myTF.Translate(Vector2.left * BackGroud_speed.Instance._speed * Time.deltaTime);
+            if (_myTF.position.x < -10)
+            {
+                MapGamemanger.Instance._break = false;
+                Destroy(gameObject);
+            }
+ 
     }
 
     void OnTriggerEnter2D(Collider2D other)
