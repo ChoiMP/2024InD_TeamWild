@@ -19,7 +19,7 @@ public class BackGround_Mid : MonoBehaviour
     [SerializeField]
     public int _speedFixed = 0;
 
-    public float _gameTime = 55.0f;
+    public float _gameTime = 57.0f;
 
     private void Start()
     {
@@ -77,6 +77,7 @@ public class BackGround_Mid : MonoBehaviour
         if (MapGamemanger.Instance._lastStage)
         {
             _speedFixed = 2;
+            
         }
         else
         {
