@@ -86,13 +86,14 @@ public class PlayerController : MonoBehaviour
     public void OnEndRunning()
     {
         StartCoroutine(EndRunning());
+        SoundManager.Instance.PlayArrivalSound();
     }
 
     IEnumerator EndRunning()
     {
         while (true)
         {
-        transform.Translate(Vector2.right * Time.deltaTime * 15f);
+            transform.Translate(Vector2.right * Time.deltaTime * 15f);
             yield return new WaitForSeconds(Time.deltaTime);
         }
     }
@@ -105,24 +106,46 @@ public class PlayerController : MonoBehaviour
             rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isGrounded = false;
             state = PlayerState.Jumping;
+            SoundManager.Instance.PlayJumpSound();
         }
     }
 
     public void OnSlide(InputAction.CallbackContext context)
     {
+        if (isGrounded)
+        {
+            if (context.performed)
+            {
+                Debug.Log("슬라이딩 시작");
+                boxCollider.size = new Vector2(1, 1);
+                boxCollider.offset = new Vector2(0, 0f);
+                state = PlayerState.Sliding;
+                SoundManager.Instance.PlaySlideSound();
+            }
+            else
+            {
+                Debug.Log("슬라이딩 끝");
+                boxCollider.size = new Vector2(1, 2);
+                boxCollider.offset = new Vector2(0, 0.3f);
+                state = PlayerState.Running;
+            }
+        }
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        Debug.Log("esc");
         if (context.performed)
         {
-            Debug.Log("슬라이딩 시작");
-            boxCollider.size = new Vector2(1, 1);
-            boxCollider.offset = new Vector2(0, -0.35f);
-            state = PlayerState.Sliding;
-        }
-        else
-        {
-            Debug.Log("슬라이딩 끝");
-            boxCollider.size = new Vector2(1, 2);
-            boxCollider.offset = new Vector2(0, 0.3f);
-            state = PlayerState.Running;
+            if (Time.timeScale == 1)
+            {
+                Debug.Log("일시정지");
+                Time.timeScale = 0;
+            }
+            else
+            {
+                Time.timeScale = 1;
+            }
         }
     }
 
@@ -138,6 +161,7 @@ public class PlayerController : MonoBehaviour
                 OnDeath();
             }
             OnChangeHealth();
+            SoundManager.Instance.PlayHitSound();
         }
     }
 
@@ -221,8 +245,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        isGrounded = true;
-        state = PlayerState.Running;
+        if (collision.transform.CompareTag("Ground"))
+        {
+            isGrounded = true;
+            state = PlayerState.Running;
+        }
+
     }
 
 
