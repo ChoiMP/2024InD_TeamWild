@@ -172,7 +172,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &211425972
 Transform:
   m_ObjectHideFlags: 0
@@ -199,7 +199,6 @@ GameObject:
   m_Component:
   - component: {fileID: 273114225}
   - component: {fileID: 273114226}
-  - component: {fileID: 273114227}
   m_Layer: 0
   m_Name: Stage3_0
   m_TagString: Untagged
@@ -215,7 +214,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273114224}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.8, z: 563.8282}
+  m_LocalPosition: {x: 0, y: 1.7999992, z: 563.8282}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 211425972}
@@ -260,7 +259,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -102
   m_Sprite: {fileID: -7651895242900624139, guid: f075c6f5c0ad9024b93af8140268b832, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -272,24 +271,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &273114227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273114224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b67839e8af2487940837ccdc1a91d79f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 5
-  _XPotion: 27.2
-  _speedIncreaseFactor: 0.2
-  _speedIncreaseInterval: 10
-  _xPostion: -47
-  _xMove: 118.9
 --- !u!1 &390327054
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,7 +710,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1085805282}
   - component: {fileID: 1085805283}
-  - component: {fileID: 1085805284}
   m_Layer: 0
   m_Name: Stage3_1
   m_TagString: Untagged
@@ -790,7 +770,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -105
+  m_SortingOrder: -102
   m_Sprite: {fileID: 1217094986102342762, guid: f075c6f5c0ad9024b93af8140268b832, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -802,24 +782,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1085805284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1085805281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b67839e8af2487940837ccdc1a91d79f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 5
-  _XPotion: 86.58501
-  _speedIncreaseFactor: 0.2
-  _speedIncreaseInterval: 10
-  _xPostion: -34
-  _xMove: 118.9
 --- !u!1 &1116840656
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,7 +848,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1156273551
 Transform:
   m_ObjectHideFlags: 0
@@ -1178,7 +1140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b67839e8af2487940837ccdc1a91d79f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 9
+  _speed: 5
   _XPotion: 86.58501
   _speedIncreaseFactor: 0.2
   _speedIncreaseInterval: 10
@@ -1300,7 +1262,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1550091960}
   - component: {fileID: 1550091961}
-  - component: {fileID: 1550091962}
   m_Layer: 0
   m_Name: Stage2_1
   m_TagString: Untagged
@@ -1373,7 +1334,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-<<<<<<< Updated upstream
 --- !u!1 &1623441702
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,31 +1393,19 @@ BoxCollider2D:
   m_Size: {x: 4, y: 4}
   m_EdgeRadius: 0
 --- !u!114 &1623441705
-=======
---- !u!114 &1550091962
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
   m_GameObject: {fileID: 1623441702}
-=======
-  m_GameObject: {fileID: 1550091959}
->>>>>>> Stashed changes
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b67839e8af2487940837ccdc1a91d79f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   _speed: 6
   _XPotion: 10
-=======
-  _speed: 5
-  _XPotion: 86.58501
->>>>>>> Stashed changes
   _speedIncreaseFactor: 0.2
   _speedIncreaseInterval: 10
   _xPostion: -34
@@ -1502,7 +1450,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1705956738}
   - component: {fileID: 1705956739}
-  - component: {fileID: 1705956740}
   m_Layer: 0
   m_Name: Stage2_0
   m_TagString: Untagged
@@ -1575,24 +1522,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1705956740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1705956737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b67839e8af2487940837ccdc1a91d79f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 5
-  _XPotion: 27.2
-  _speedIncreaseFactor: 0.2
-  _speedIncreaseInterval: 10
-  _xPostion: -47
-  _xMove: 118.9
 --- !u!1 &1723574007
 GameObject:
   m_ObjectHideFlags: 0
@@ -1688,7 +1617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b67839e8af2487940837ccdc1a91d79f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 9
+  _speed: 5
   _XPotion: 27.2
   _speedIncreaseFactor: 0.2
   _speedIncreaseInterval: 10
