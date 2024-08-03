@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
         hp = MAXHP;
 
-        DisableInput();
+        // DisableInput();
     }
 
     private void Start()
@@ -112,30 +112,27 @@ public class PlayerController : MonoBehaviour
 
     public void OnSlide(InputAction.CallbackContext context)
     {
-        if (isGrounded)
+        if (context.performed)
         {
-            if (context.performed)
+            if (isGrounded)
             {
-                if (isGrounded)
-                {
-                    Debug.Log("슬라이딩 시작");
-                    boxCollider.size = new Vector2(1, 1);
-                    boxCollider.offset = new Vector2(0, 0f);
-                    state = PlayerState.Sliding;
-                    SoundManager.Instance.PlaySlideSound();
-                }
-            }
-            else
-            {
-                if (isGrounded)
-                {
-                    Debug.Log("슬라이딩 끝");
-                    boxCollider.size = new Vector2(1, 2);
-                    boxCollider.offset = new Vector2(0, 0.3f);
-                    state = PlayerState.Running;
-                }
+                Debug.Log("슬라이딩 시작");
+                boxCollider.size = new Vector2(1, 1);
+                boxCollider.offset = new Vector2(0, -0.5f);
+                state = PlayerState.Sliding;
+                SoundManager.Instance.PlaySlideSound();
             }
         }
+
+        else
+        {
+            Debug.Log("슬라이딩 끝");
+            boxCollider.size = new Vector2(1, 2);
+            boxCollider.offset = new Vector2(0, -0.2f);
+            state = PlayerState.Running;
+
+        }
+
     }
 
     public void OnPause(InputAction.CallbackContext context)
@@ -254,7 +251,7 @@ public class PlayerController : MonoBehaviour
         if (collision.transform.CompareTag("Ground"))
         {
             isGrounded = true;
-            if(state == PlayerState.Sliding)
+            if (state == PlayerState.Sliding)
             {
                 return;
             }
