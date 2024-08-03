@@ -280,17 +280,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &275921166 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5109506180126911772, guid: 7906d875e0d19254e9f0d86a6c4467c6, type: 3}
-  m_PrefabInstance: {fileID: 39466870}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1de6f3fae769374429b9df8eb0e8a2ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1018647396
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,6 +502,7 @@ GameObject:
   - component: {fileID: 1447218456}
   - component: {fileID: 1447218455}
   - component: {fileID: 1447218454}
+  - component: {fileID: 1447218457}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -583,9 +573,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 275921166}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 1447218457}
+        m_TargetAssemblyTypeName: ButtonFunction, Assembly-CSharp
+        m_MethodName: OnLoadScene
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -633,6 +623,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447218452}
   m_CullTransparentMesh: 1
+--- !u!114 &1447218457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447218452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8e6029a63ad3d4288cbabf81ee11d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1641971272
 PrefabInstance:
   m_ObjectHideFlags: 0

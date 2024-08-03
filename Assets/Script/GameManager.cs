@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        // SoundManager.Instance.StopBGM();
         FadeSystem.Instance.FadeOut();
         string sceneName = SceneManager.GetActiveScene().name;
 
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneUnloaded(Scene scene)
     {
+        SoundManager.Instance.StopBGM();
     }
 
     private void OnActiveSceneChanged(Scene oldScene, Scene newScene)

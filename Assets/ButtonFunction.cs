@@ -8,4 +8,9 @@ public class ButtonFunction : MonoBehaviour
     {
         GameManager.Instance.LoadStage(sceneNum);
     }
+
+    public void OnLoadScene(int sceneNum)
+    {
+        GameManager.Instance.LoadScene(sceneNum);
+    }
 }
