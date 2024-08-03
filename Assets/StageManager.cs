@@ -20,11 +20,6 @@ public class StageManager : MonoBehaviour
 
         // Set up buttons based on saved states
         UpdateButtonStates(isStage1Cleared, isStage2Cleared, isStage3Cleared);
-
-        // Add button listeners
-        stage1Button.onClick.AddListener(() => ClearStage(1));
-        stage2Button.onClick.AddListener(() => ClearStage(2));
-        stage3Button.onClick.AddListener(() => ClearStage(3));
     }
 
     private void UpdateButtonStates(bool isStage1Cleared, bool isStage2Cleared, bool isStage3Cleared)
