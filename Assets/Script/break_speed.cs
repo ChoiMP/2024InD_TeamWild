@@ -5,7 +5,7 @@ using UnityEngine;
 public class break_speed : MonoBehaviour
 {
     Transform _myTF;
-
+    private float _Bspeed;
     void Start()
     {
         _myTF = GetComponent<Transform>();
@@ -13,7 +13,8 @@ public class break_speed : MonoBehaviour
 
     void Update()
     {
-            _myTF.Translate(Vector2.left * BackGround_Mid.Instance._speed * Time.deltaTime);
+            _Bspeed = BackGround_Mid.Instance._speed*1.7f;
+            _myTF.Translate(Vector2.left * _Bspeed * Time.deltaTime);
             if (_myTF.position.x < -10)
             {
                 MapGamemanger.Instance._break = false;
