@@ -33,7 +33,10 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
 
     [SerializeField]
-    private SpriteRenderer spriteRenderer;
+    private SpriteRenderer[] spriteRenderer;
+
+    [SerializeField]
+    private ParticleSystemRenderer[] eyes;
 
     [SerializeField]
     public int hp;
@@ -57,7 +60,7 @@ public class PlayerController : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         playerInput = GetComponent<PlayerInput>();
         animator = GetComponentInChildren<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentsInChildren<SpriteRenderer>();
 
         bIsInvincible = false;
         isGrounded = true;
@@ -195,22 +198,39 @@ public class PlayerController : MonoBehaviour
     IEnumerator Hit()
     {
         bIsInvincible = true;
+
         bool flag = true;
         for (int i = 0; i < 30; i++)
         {
-            if (flag)
+            foreach (SpriteRenderer renderer in spriteRenderer)
             {
-                spriteRenderer.color = new Color(1, 1, 1, 0);
-                flag = !flag;
+                if (flag)
+                {
+                    renderer.color = new Color(1, 1, 1, 0);
+                }
+                else
+                {
+                    renderer.color = new Color(1, 1, 1, 1);
+                }
             }
-            else
+            foreach(ParticleSystemRenderer eye in eyes)
             {
-                spriteRenderer.color = new Color(1, 1, 1, 1);
-                flag = !flag;
+                if (flag)
+                {
+                    eye.enabled = false;
+                }
+                else
+                {
+                    eye.enabled = true;
+                }
             }
+            flag = !flag;
             yield return WF01;
         }
-        spriteRenderer.color = new Color(1, 1, 1, 1);
+        foreach (SpriteRenderer renderer in spriteRenderer)
+        {
+            renderer.color = new Color(1, 1, 1, 1);
+        }
         bIsInvincible = false;
         yield return null;
     }

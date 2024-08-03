@@ -10559,7 +10559,11 @@ MonoBehaviour:
   isGrounded: 0
   playerInput: {fileID: 5243278452145835278}
   animator: {fileID: 0}
-  spriteRenderer: {fileID: 0}
+  spriteRenderer:
+  - {fileID: 0}
+  eyes:
+  - {fileID: 5243278452419559248}
+  - {fileID: 7348128483764644064}
   hp: 0
   hearts:
   - {fileID: 0}
