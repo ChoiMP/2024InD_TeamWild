@@ -10,11 +10,13 @@ public class BackGround_Mid : MonoBehaviour
     private Transform _myTF;
     public float _speedIncreaseFactor = 0.5f; // 속도를 얼마나 증가시킬지 결정하는 계수
     public float _speedIncreaseInterval = 5f; // 속도 증가 주기 (초 단위)
-    private float _speeddownTime = 1.0f; // 감속 시간 간격
+    private float _speeddownTime = 1.0f; // 1초씩 감소
     public float _xPostion = 0.0f;
     public float _xMove = 0.0f;
     [SerializeField]
     public bool _breakStop = true;
+    [SerializeField]
+    public bool _GOnoff = false;
 
     [SerializeField]
     public int _speedFixed = 0;
@@ -92,11 +94,12 @@ public class BackGround_Mid : MonoBehaviour
     private IEnumerator SlowDownSpeed()
     {
         _isSlowingDown = true; // 감속 시작
+        _GOnoff = true;
         while (_speed > 0)
         {
-            _speed *= 0.7f; // 속도를 10%씩 감속
+            _speed *= 0.8f; // 속도를 20%씩 감속
             yield return new WaitForSeconds(_speeddownTime); // 지정된 시간 대기
-            if (_speed < 0.5f)
+            if (_speed < 1f)
             {
                 _speed = 0f; // 속도가 매우 작아지면 0으로 설정
                 _speedFixed = 1; // 감속 완료 상태로 설정
