@@ -17,6 +17,7 @@ public class break_speed : MonoBehaviour
             if (_myTF.position.x < -10)
             {
                 MapGamemanger.Instance._break = false;
+                MapGamemanger.Instance._breakcount++;
                 Destroy(gameObject);
             }
  
