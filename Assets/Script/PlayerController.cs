@@ -244,6 +244,10 @@ public class PlayerController : MonoBehaviour
             DisableInput();
             OnEndRunning();
         }
+        else if (collision.transform.CompareTag("Obstacle"))
+        {
+            OnHit();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

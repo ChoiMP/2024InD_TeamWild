@@ -1145,7 +1145,7 @@ MonoBehaviour:
   _speedIncreaseFactor: 0.2
   _speedIncreaseInterval: 10
   _xPostion: -34
-  _xMove: 118.9
+  _xMove: 118.6
 --- !u!1 &1481993366
 GameObject:
   m_ObjectHideFlags: 0
@@ -1622,4 +1622,4 @@ MonoBehaviour:
   _speedIncreaseFactor: 0.2
   _speedIncreaseInterval: 10
   _xPostion: -47
-  _xMove: 118.9
+  _xMove: 118.6
