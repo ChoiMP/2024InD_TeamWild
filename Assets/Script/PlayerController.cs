@@ -244,6 +244,20 @@ public class PlayerController : MonoBehaviour
         GameManager.Instance.LoadScene(6);
     }
 
+    public void OnMeetGGumdol()
+    {
+        StartCoroutine(MeetGGumdol());
+    }
+
+    IEnumerator MeetGGumdol()
+    {
+        state = PlayerState.Sliding;
+        yield return new WaitForSeconds(3f);
+        OnEndRunning();
+        yield return new WaitForSeconds(3f);
+        GameManager.Instance.LoadScene(7);
+    }
+
     /// <summary> 플레이어 입력을 가능하게 /summary>
     public void DisableInput()
     {

@@ -10554,7 +10554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 5243278452145835279}
-  jumpForce: 12
+  jumpForce: 15
   boxCollider: {fileID: 0}
   isGrounded: 0
   playerInput: {fileID: 5243278452145835278}
