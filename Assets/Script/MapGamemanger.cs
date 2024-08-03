@@ -83,12 +83,15 @@ public class MapGamemanger : MonoBehaviour
 
     private void Update()
     {
-        if (BackGroud_speed.Instance._speedFixed==0) // 배경 속도가 고정되지 않았을 때
+        if (BackGround_Mid.Instance._breakStop)
         {
-            if (!_break) // 중단 상태가 아닐 때
+            if (BackGround_Mid.Instance._speedFixed == 0) // 배경 속도가 고정되지 않았을 때
             {
-                Fire();
-                _break = true;
+                if (!_break) // 중단 상태가 아닐 때
+                {
+                    Fire();
+                    _break = true;
+                }
             }
         }
     }

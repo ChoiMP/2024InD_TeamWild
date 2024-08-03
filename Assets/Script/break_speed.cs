@@ -13,8 +13,7 @@ public class break_speed : MonoBehaviour
 
     void Update()
     {
-            _myTF.Translate(Vector2.left * BackGroud_speed.Instance._speed * Time.deltaTime);
-        Debug.Log(BackGroud_speed.Instance._speed);
+            _myTF.Translate(Vector2.left * BackGround_Mid.Instance._speed * Time.deltaTime);
             if (_myTF.position.x < -10)
             {
                 MapGamemanger.Instance._break = false;

@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackGroud_speed : MonoBehaviour
+public class BackGround_Mid : MonoBehaviour
 {
+    public static BackGround_Mid Instance { get; private set; }
     public float _speed;
     public float _XPotion = 0.0f;
     private Transform _myTF;
@@ -12,6 +13,8 @@ public class BackGroud_speed : MonoBehaviour
     private float _speeddownTime = 1.0f; // 감속 시간 간격
     public float _xPostion = 0.0f;
     public float _xMove = 0.0f;
+    [SerializeField]
+    public bool _breakStop = true;
 
     [SerializeField]
     public int _speedFixed = 0;
@@ -23,12 +26,17 @@ public class BackGroud_speed : MonoBehaviour
         _myTF = GetComponent<Transform>();
         // 위치를 직접 설정
         _myTF.position = new Vector3(_XPotion, 0f, 0f);
+    }
+
+    private void Awake()
+    {
+        Instance = this;
+
         // 속도 증가 코루틴 시작
         StartCoroutine(IncreaseSpeedOverTime());
         // 60초 후에 속도를 고정시키는 코루틴 시작
         StartCoroutine(FixSpeedAfter60Seconds());
     }
-
 
     void Update()
     {
@@ -63,6 +71,8 @@ public class BackGroud_speed : MonoBehaviour
     private IEnumerator FixSpeedAfter60Seconds()
     {
         yield return new WaitForSeconds(_gameTime);
+        _breakStop = false;
+        Debug.Log(_gameTime);
         yield return new WaitForSeconds(3.0f);
         if (MapGamemanger.Instance._lastStage)
         {
@@ -74,6 +84,8 @@ public class BackGroud_speed : MonoBehaviour
         }
     }
 
+
+
     private bool _isSlowingDown = false; // 감속 상태를 추적하는 변수
 
     private IEnumerator SlowDownSpeed()
@@ -81,7 +93,7 @@ public class BackGroud_speed : MonoBehaviour
         _isSlowingDown = true; // 감속 시작
         while (_speed > 0)
         {
-            _speed *= 0.7f; // 속도를 20%씩 감속
+            _speed *= 0.7f; // 속도를 10%씩 감속
             yield return new WaitForSeconds(_speeddownTime); // 지정된 시간 대기
             if (_speed < 0.5f)
             {
