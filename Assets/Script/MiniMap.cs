@@ -1,16 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MiniMap : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject startPoint;
-    [SerializeField]
-    private GameObject endPoint;
-    [SerializeField]
-    private GameObject player;
-
     [SerializeField]
     private GameObject mapStartPoint;
     [SerializeField]
@@ -18,51 +9,41 @@ public class MiniMap : MonoBehaviour
     [SerializeField]
     private GameObject mapPlayer;
 
-    private float worldLength;
     private float mapLength;
+    private float timer;
+    private const float totalTime = 60f; // Total time in seconds
 
     private void Awake()
     {
-        // Automatically find and assign GameObjects if not already assigned
-        if (player == null)
-        {
-            player = GameObject.FindGameObjectWithTag("Player");
-        }
-        if (startPoint == null)
-        {
-            startPoint = GameObject.FindGameObjectWithTag("StartRunning");
-        }
-        if (endPoint == null)
-        {
-            endPoint = GameObject.FindGameObjectWithTag("StopRunning");
-        }
         if (mapStartPoint == null || mapEndPoint == null || mapPlayer == null)
         {
             Debug.LogError("Map objects are not assigned in the inspector.");
             return;
         }
 
-        // Calculate lengths
-        worldLength = Mathf.Abs(endPoint.transform.position.x - startPoint.transform.position.x);
+        // Calculate the length of the map in world units
         mapLength = Mathf.Abs(mapEndPoint.transform.position.x - mapStartPoint.transform.position.x);
     }
 
-    private void FixedUpdate()
+    private void Start()
     {
-        if (worldLength == 0 || mapLength == 0)
+        timer = 0f; // Initialize timer
+    }
+
+    private void Update()
+    {
+        if (mapLength == 0)
         {
-            Debug.LogError("World or map length is zero, check the positions of start and end points.");
+            Debug.LogError("Map length is zero, check the positions of mapStartPoint and mapEndPoint.");
             return;
         }
 
-        // Get the player's current x position
-        float playerX = player.transform.position.x;
+        // Update the timer
+        timer += Time.deltaTime;
+        timer = Mathf.Clamp(timer, 0f, totalTime); // Clamp timer between 0 and totalTime
 
-        // Clamp the player position within the start and end points
-        playerX = Mathf.Clamp(playerX, startPoint.transform.position.x, endPoint.transform.position.x);
-
-        // Calculate the player's ratio position between start and end points
-        float ratio = (playerX - startPoint.transform.position.x) / worldLength;
+        // Calculate the player's ratio position based on the timer
+        float ratio = timer / totalTime;
 
         // Calculate the corresponding position on the mini-map
         float mapX = mapStartPoint.transform.position.x + mapLength * ratio;

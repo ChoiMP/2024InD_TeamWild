@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour
     public PlayerState state;
 
     private WaitForSeconds WF01 = new WaitForSeconds(0.1f);
+    public int sceneNum;
 
 
     // Start is called before the first frame update
@@ -73,7 +75,6 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        FadeSystem.Instance.FadeOut();
     }
     private void LateUpdate()
     {
@@ -90,6 +91,7 @@ public class PlayerController : MonoBehaviour
     {
         StartCoroutine(EndRunning());
         SoundManager.Instance.PlayArrivalSound();
+        bIsInvincible = true;
     }
 
     IEnumerator EndRunning()
@@ -239,6 +241,7 @@ public class PlayerController : MonoBehaviour
     public void OnDeath()
     {
         Debug.Log("OnDeath");
+        GameManager.Instance.LoadScene(6);
     }
 
     /// <summary> 플레이어 입력을 가능하게 /summary>

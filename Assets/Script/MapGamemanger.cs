@@ -42,7 +42,9 @@ public class MapGamemanger : MonoBehaviour
         // 씬 이름에 따라 호출 횟수 결정
         switch (sceneName)
         {
-            case "break":
+            case "Stage1":
+            case "Stage2":
+            case "Stage3":
                 fireCount = 2;
                 Time = 1.5f;
                 break;

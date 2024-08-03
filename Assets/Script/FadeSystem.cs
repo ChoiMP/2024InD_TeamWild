@@ -22,8 +22,14 @@ public class FadeSystem : MonoBehaviour
         {
             Destroy(gameObject); // 이미 인스턴스가 존재하면 새로 생성된 오브젝트 파괴
         }
+
+        
     }
 
+    private void OnEnable()
+    {
+        FadeOut();
+    }
     // 페이드 인 함수
     public void FadeIn()
     {

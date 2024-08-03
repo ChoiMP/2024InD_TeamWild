@@ -10571,6 +10571,7 @@ MonoBehaviour:
   - {fileID: 0}
   bIsInvincible: 0
   state: 0
+  sceneNum: 0
 --- !u!61 &5243278452145835275
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10655,7 +10656,19 @@ MonoBehaviour:
     m_ActionId: 3390eafb-fd75-4a76-9f02-9732a12dc0c6
     m_ActionName: PlayerActions/Jump[/Keyboard/z]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5243278452145835274}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: b61d9836-d76a-493d-82e6-07277fcadf5d
     m_ActionName: PlayerActions/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0

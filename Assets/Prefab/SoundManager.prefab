@@ -48,5 +48,5 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: 89e6bc608da7b47d4914f3d9c2484e48, type: 3}
   arrivalSound: {fileID: 8300000, guid: 2667a0a008b044e218b63df62e2be749, type: 3}
   bgmStage1: {fileID: 8300000, guid: 4a0c6593f6a170a49b9133b632761d18, type: 3}
-  bgmStage2: {fileID: 0}
+  bgmStage2: {fileID: 8300000, guid: 8a7f803187cf868419a05221981a5b4f, type: 3}
   bgmStage3: {fileID: 8300000, guid: 853cba3427d528041aa86bfff84b85b6, type: 3}
