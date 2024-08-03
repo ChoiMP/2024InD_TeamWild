@@ -116,18 +116,24 @@ public class PlayerController : MonoBehaviour
         {
             if (context.performed)
             {
-                Debug.Log("슬라이딩 시작");
-                boxCollider.size = new Vector2(1, 1);
-                boxCollider.offset = new Vector2(0, 0f);
-                state = PlayerState.Sliding;
-                SoundManager.Instance.PlaySlideSound();
+                if (isGrounded)
+                {
+                    Debug.Log("슬라이딩 시작");
+                    boxCollider.size = new Vector2(1, 1);
+                    boxCollider.offset = new Vector2(0, 0f);
+                    state = PlayerState.Sliding;
+                    SoundManager.Instance.PlaySlideSound();
+                }
             }
             else
             {
-                Debug.Log("슬라이딩 끝");
-                boxCollider.size = new Vector2(1, 2);
-                boxCollider.offset = new Vector2(0, 0.3f);
-                state = PlayerState.Running;
+                if (isGrounded)
+                {
+                    Debug.Log("슬라이딩 끝");
+                    boxCollider.size = new Vector2(1, 2);
+                    boxCollider.offset = new Vector2(0, 0.3f);
+                    state = PlayerState.Running;
+                }
             }
         }
     }
@@ -248,6 +254,10 @@ public class PlayerController : MonoBehaviour
         if (collision.transform.CompareTag("Ground"))
         {
             isGrounded = true;
+            if(state == PlayerState.Sliding)
+            {
+                return;
+            }
             state = PlayerState.Running;
         }
 
