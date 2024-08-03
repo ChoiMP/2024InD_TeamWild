@@ -6,14 +6,14 @@ using UnityEngine.SceneManagement;
 public class MapGamemanger : MonoBehaviour
 {
     public static MapGamemanger Instance { get; private set; }
-    public int _breakcount;//장애물이 소환될 개수
     public bool _break = true;// 장애물이 부숴졌는가의 True, False
     private int _numrespawns = 0;//리스폰 위치 랜덤값
     public Transform[] _respawns;
     public Transform[] _upObejct;
     public Transform[] _downObejct;
 
-    public Coroutine fireCoroutine; // Fire 코루틴 참조
+    public bool _lastStage = false;
+
 
     void Fire()
     {
@@ -56,6 +56,7 @@ public class MapGamemanger : MonoBehaviour
             case "Stage3":
                 fireCount = 3;
                 Time = 2.0f;
+                _lastStage = true;
                 break;
             default:
                 Debug.LogWarning("Unknown scene name");
@@ -79,40 +80,15 @@ public class MapGamemanger : MonoBehaviour
         }
     }
 
-    private IEnumerator FireAtRandomIntervals()
-    {
-        while (true)
-        {
-            Fire();
-            float waitTime = UnityEngine.Random.Range(0.5f, 4.0f);
-            Debug.Log(waitTime);
-            yield return new WaitForSeconds(waitTime);
-        }
-    }
 
     private void Update()
     {
-        if (!BackGroud_speed.Instance._speedFixed) // 배경 속도가 고정되지 않았을 때
+        if (BackGroud_speed.Instance._speedFixed==0) // 배경 속도가 고정되지 않았을 때
         {
             if (!_break) // 중단 상태가 아닐 때
             {
-                if (_breakcount > 0) // 남은 중단 횟수가 있을 때
-                {
-                    if (fireCoroutine == null)
-                    {
-                        _breakcount--;
-                        fireCoroutine = StartCoroutine(FireAtRandomIntervals()); // 랜덤 간격으로 Fire 호출하는 코루틴 시작
-                    }
-                    _break = true; // 중단 상태로 변경
-                }
-            }
-            else
-            {
-                if (fireCoroutine != null)
-                {
-                    StopCoroutine(fireCoroutine); // Fire 코루틴 중지
-                    fireCoroutine = null;
-                }
+                Fire();
+                _break = true;
             }
         }
     }
