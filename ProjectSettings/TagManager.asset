@@ -7,6 +7,7 @@ TagManager:
   - StartRunning
   - StopRunning
   - Ground
+  - Obstacle
   layers:
   - Default
   - TransparentFX
