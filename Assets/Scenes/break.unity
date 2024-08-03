@@ -611,8 +611,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 7
-  speedIncreaseFactor: 0.1
-  speedIncreaseInterval: 5
+  _XPotion: 0
+  _speedIncreaseFactor: 0.5
+  _speedIncreaseInterval: 5
+  _xPostion: 0
+  _xMove: 0
 --- !u!1 &1044213791
 GameObject:
   m_ObjectHideFlags: 0
@@ -1050,6 +1053,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1436896000}
   - component: {fileID: 1436896001}
+  - component: {fileID: 1436896002}
   m_Layer: 0
   m_Name: Stage1_1
   m_TagString: Untagged
@@ -1122,6 +1126,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1436896002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436895999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b67839e8af2487940837ccdc1a91d79f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 5
+  _XPotion: 86.58501
+  _speedIncreaseFactor: 0.2
+  _speedIncreaseInterval: 10
+  _xPostion: -34
+  _xMove: 118.9
 --- !u!1 &1481993366
 GameObject:
   m_ObjectHideFlags: 0
@@ -1356,6 +1378,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1723574008}
   - component: {fileID: 1723574009}
+  - component: {fileID: 1723574010}
   m_Layer: 0
   m_Name: Stage1_0
   m_TagString: Untagged
@@ -1428,3 +1451,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1723574010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723574007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b67839e8af2487940837ccdc1a91d79f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 5
+  _XPotion: 27.2
+  _speedIncreaseFactor: 0.2
+  _speedIncreaseInterval: 10
+  _xPostion: -47
+  _xMove: 118.9
