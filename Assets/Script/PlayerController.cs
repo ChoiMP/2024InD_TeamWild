@@ -251,8 +251,8 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator MeetGGumdol()
     {
-        state = PlayerState.Sliding;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(10f);
+        state = PlayerState.Idle;
         OnEndRunning();
         yield return new WaitForSeconds(3f);
         GameManager.Instance.LoadScene(7);
