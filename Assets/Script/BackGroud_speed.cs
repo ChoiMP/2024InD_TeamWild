@@ -16,7 +16,7 @@ public class BackGroud_speed : MonoBehaviour
     [SerializeField]
     public int _speedFixed = 0;
 
-    public float _gameTime = 55.0f;
+    public float _gameTime = 57.0f;
 
     private void Start()
     {
@@ -81,9 +81,9 @@ public class BackGroud_speed : MonoBehaviour
         _isSlowingDown = true; // 감속 시작
         while (_speed > 0)
         {
-            _speed *= 0.7f; // 속도를 20%씩 감속
+            _speed *= 0.8f; // 속도를 20%씩 감속
             yield return new WaitForSeconds(_speeddownTime); // 지정된 시간 대기
-            if (_speed < 0.5f)
+            if (_speed < 1f)
             {
                 _speed = 0f; // 속도가 매우 작아지면 0으로 설정
                 _speedFixed = 1; // 감속 완료 상태로 설정
