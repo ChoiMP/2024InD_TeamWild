@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         playerInput = GetComponent<PlayerInput>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         bIsInvincible = false;
@@ -66,8 +66,6 @@ public class PlayerController : MonoBehaviour
         hp = MAXHP;
 
         DisableInput();
-
-        FadeSystem.Instance.FadeOut();
     }
 
     private void Start()
