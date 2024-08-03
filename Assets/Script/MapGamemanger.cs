@@ -43,10 +43,16 @@ public class MapGamemanger : MonoBehaviour
         switch (sceneName)
         {
             case "Stage1":
+                fireCount = 1;
+                Time = 1.0f;
+                break;
             case "Stage2":
+                fireCount = 2;
+                Time = 2.2f;
+                break;
             case "Stage3":
                 fireCount = 2;
-                Time = 1.5f;
+                Time = 5.5f;
                 break;
             default:
                 Debug.LogWarning("Unknown scene name");
@@ -71,10 +77,14 @@ public class MapGamemanger : MonoBehaviour
 
     private void Update()
     {
-        if (!_break)
+        if (!BackGroud_speed.Instance._speedFixed)
         {
-            Fire();
-            _break = true;
+            if (!_break)
+            {
+                Fire();
+                _break = true;
+
+            }
         }
     }
 }
