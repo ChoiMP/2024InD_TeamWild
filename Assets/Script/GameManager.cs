@@ -73,4 +73,21 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneNum);
         SceneManager.LoadScene(5, LoadSceneMode.Additive);
     }
+
+    public void SaveStageInfo(int scenNum)
+    {
+        switch (scenNum)
+        {
+            case 1:
+                PlayerPrefs.SetInt("Stage1Cleared", 1);
+                break;
+            case 2:
+                PlayerPrefs.SetInt("Stage2Cleared", 1);
+                break;
+            case 3:
+                PlayerPrefs.SetInt("Stage3Cleared", 1);
+                break;
+        }
+        PlayerPrefs.Save(); // Save the changes to PlayerPrefs
+    }
 }
