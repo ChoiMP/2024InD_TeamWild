@@ -6,11 +6,14 @@ using UnityEngine.SceneManagement;
 public class MapGamemanger : MonoBehaviour
 {
     public static MapGamemanger Instance { get; private set; }
-    public bool _break = true;
-    private int _numrespawns=0;
+    public int _breakcount;//장애물이 소환될 개수
+    public bool _break = true;// 장애물이 부숴졌는가의 True, False
+    private int _numrespawns = 0;//리스폰 위치 랜덤값
     public Transform[] _respawns;
     public Transform[] _upObejct;
     public Transform[] _downObejct;
+
+    public Coroutine fireCoroutine; // Fire 코루틴 참조
 
     void Fire()
     {
@@ -29,7 +32,7 @@ public class MapGamemanger : MonoBehaviour
 
     private void Awake()
     {
-            Instance = this;
+        Instance = this;
     }
 
     private void Start()
@@ -44,15 +47,15 @@ public class MapGamemanger : MonoBehaviour
         {
             case "Stage1":
                 fireCount = 1;
-                Time = 1.0f;
+                Time = 0.1f;
                 break;
             case "Stage2":
                 fireCount = 2;
-                Time = 2.2f;
+                Time = 1.0f;
                 break;
             case "Stage3":
-                fireCount = 2;
-                Time = 5.5f;
+                fireCount = 3;
+                Time = 2.0f;
                 break;
             default:
                 Debug.LogWarning("Unknown scene name");
@@ -64,6 +67,7 @@ public class MapGamemanger : MonoBehaviour
         {
             StartCoroutine(FireWithDelay(fireCount, Time));
         }
+
     }
 
     private IEnumerator FireWithDelay(int count, float time)
@@ -75,15 +79,40 @@ public class MapGamemanger : MonoBehaviour
         }
     }
 
+    private IEnumerator FireAtRandomIntervals()
+    {
+        while (true)
+        {
+            Fire();
+            float waitTime = UnityEngine.Random.Range(0.5f, 4.0f);
+            Debug.Log(waitTime);
+            yield return new WaitForSeconds(waitTime);
+        }
+    }
+
     private void Update()
     {
-        if (!BackGroud_speed.Instance._speedFixed)
+        if (!BackGroud_speed.Instance._speedFixed) // 배경 속도가 고정되지 않았을 때
         {
-            if (!_break)
+            if (!_break) // 중단 상태가 아닐 때
             {
-                Fire();
-                _break = true;
-
+                if (_breakcount > 0) // 남은 중단 횟수가 있을 때
+                {
+                    if (fireCoroutine == null)
+                    {
+                        _breakcount--;
+                        fireCoroutine = StartCoroutine(FireAtRandomIntervals()); // 랜덤 간격으로 Fire 호출하는 코루틴 시작
+                    }
+                    _break = true; // 중단 상태로 변경
+                }
+            }
+            else
+            {
+                if (fireCoroutine != null)
+                {
+                    StopCoroutine(fireCoroutine); // Fire 코루틴 중지
+                    fireCoroutine = null;
+                }
             }
         }
     }
