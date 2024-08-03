@@ -87,8 +87,8 @@ public class SoundManager : MonoBehaviour
         if (selectedBGM != null && bgmSource.clip != selectedBGM)
         {
             bgmSource.clip = selectedBGM;
-            bgmSource.Play();
         }
+            bgmSource.Play();
     }
 
     public void StopBGM()

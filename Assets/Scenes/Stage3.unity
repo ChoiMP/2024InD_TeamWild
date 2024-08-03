@@ -295,7 +295,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 133.5, y: 19.639637, z: 507.95328}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 369622348}
   m_Father: {fileID: 211425972}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -311,10 +312,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 192e82caf1e6073489616a9f92a58cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 6
+  _speed: 5
   _XPotion: 160.5492
-  _speedIncreaseFactor: 0.2
-  _speedIncreaseInterval: 10
+  _speedIncreaseFactor: 0.12
+  _speedIncreaseInterval: 15
   _xPostion: -70
   _xMove: 220
   _breakStop: 1
@@ -382,6 +383,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 503361489835181904, guid: c72b13ff2ca91fb4995597b742b4729e, type: 3}
   m_PrefabInstance: {fileID: 1053949448}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &369622349
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369622347}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!61 &369622350
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369622347}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.36, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3, y: 3}
+  m_EdgeRadius: 0
 --- !u!1 &383759703 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 503361490785176329, guid: c72b13ff2ca91fb4995597b742b4729e, type: 3}
@@ -598,6 +646,14 @@ PrefabInstance:
       propertyPath: _gameTime
       value: 57
       objectReference: {fileID: 0}
+    - target: {fileID: 2729622918238692844, guid: 9d82980fe8beaa048af2aca13440b55a, type: 3}
+      propertyPath: _speedIncreaseFactor
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2729622918238692844, guid: 9d82980fe8beaa048af2aca13440b55a, type: 3}
+      propertyPath: _speedIncreaseInterval
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2729622918238692846, guid: 9d82980fe8beaa048af2aca13440b55a, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -658,7 +714,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1124049151}
+    m_TransformParent: {fileID: 321597450}
     m_Modifications:
     - target: {fileID: 503361489835181904, guid: c72b13ff2ca91fb4995597b742b4729e, type: 3}
       propertyPath: m_RootOrder
@@ -666,27 +722,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503361489835181904, guid: c72b13ff2ca91fb4995597b742b4729e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.90090084
+      value: 0.9009008
       objectReference: {fileID: 0}
     - target: {fileID: 503361489835181904, guid: c72b13ff2ca91fb4995597b742b4729e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.90090084
+      value: 0.9009008
       objectReference: {fileID: 0}
     - target: {fileID: 503361489835181904, guid: c72b13ff2ca91fb4995597b742b4729e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.90090084
+      value: 0.9009008
       objectReference: {fileID: 0}
     - target: {fileID: 503361489835181904, guid: c72b13ff2ca91fb4995597b742b4729e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -42.7
+      value: 9.799149
       objectReference: {fileID: 0}
     - target: {fileID: 503361489835181904, guid: c72b13ff2ca91fb4995597b742b4729e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.3441467
+      value: -1.3441448
       objectReference: {fileID: 0}
     - target: {fileID: 503361489835181904, guid: c72b13ff2ca91fb4995597b742b4729e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 503361489835181904, guid: c72b13ff2ca91fb4995597b742b4729e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -719,6 +775,10 @@ PrefabInstance:
     - target: {fileID: 503361489835181908, guid: c72b13ff2ca91fb4995597b742b4729e, type: 3}
       propertyPath: m_Name
       value: Ggumdol_PR
+      objectReference: {fileID: 0}
+    - target: {fileID: 503361489835181908, guid: c72b13ff2ca91fb4995597b742b4729e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 658794718679037154, guid: c72b13ff2ca91fb4995597b742b4729e, type: 3}
@@ -909,8 +969,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 27.049168, y: 19.63964, z: 507.95328}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 369622348}
+  m_Children: []
   m_Father: {fileID: 211425972}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -926,10 +985,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 192e82caf1e6073489616a9f92a58cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 6
+  _speed: 5
   _XPotion: 54.09834
-  _speedIncreaseFactor: 0.2
-  _speedIncreaseInterval: 10
+  _speedIncreaseFactor: 0.12
+  _speedIncreaseInterval: 15
   _xPostion: -70
   _xMove: 220
   _breakStop: 1
@@ -1046,8 +1105,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 4
   _XPotion: 54.09834
-  _speedIncreaseFactor: 0.1
-  _speedIncreaseInterval: 10
+  _speedIncreaseFactor: 0.12
+  _speedIncreaseInterval: 15
   _xPostion: -70
   _xMove: 220
   _speedFixed: 0
@@ -1179,8 +1238,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 6
   _XPotion: 48.2656
-  _speedIncreaseFactor: 0.1
-  _speedIncreaseInterval: 10
+  _speedIncreaseFactor: 0.12
+  _speedIncreaseInterval: 15
   _xPostion: -70
   _xMove: 214.2
   _speedFixed: 0
@@ -1312,8 +1371,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 6
   _XPotion: 165.9791
-  _speedIncreaseFactor: 0.1
-  _speedIncreaseInterval: 10
+  _speedIncreaseFactor: 0.12
+  _speedIncreaseInterval: 15
   _xPostion: -70
   _xMove: 214.2
   _speedFixed: 0
@@ -1579,8 +1638,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 4
   _XPotion: 160.54916
-  _speedIncreaseFactor: 0.1
-  _speedIncreaseInterval: 10
+  _speedIncreaseFactor: 0.12
+  _speedIncreaseInterval: 15
   _xPostion: -70
   _xMove: 220
   _speedFixed: 0

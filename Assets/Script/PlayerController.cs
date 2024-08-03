@@ -96,11 +96,12 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator EndRunning()
     {
-        while (true)
+        for(int i = 0; i<100;i++)
         {
-            transform.Translate(Vector2.right * Time.deltaTime * 15f);
-            yield return new WaitForSeconds(Time.deltaTime);
+            transform.Translate(Vector2.right * Time.deltaTime/2);
+            yield return new WaitForSeconds(0.01f);
         }
+
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -251,10 +252,10 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator MeetGGumdol()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(8f);
         state = PlayerState.Idle;
         OnEndRunning();
-        yield return new WaitForSeconds(3f);
+        //yield return new WaitForSeconds(0.2f);
         GameManager.Instance.LoadScene(7);
     }
 

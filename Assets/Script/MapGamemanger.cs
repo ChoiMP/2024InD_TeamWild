@@ -47,15 +47,15 @@ public class MapGamemanger : MonoBehaviour
         {
             case "Stage1":
                 fireCount = 1;
-                Time = 0.1f;
+                Time = 2.0f;
                 break;
             case "Stage2":
                 fireCount = 2;
-                Time = 1.0f;
+                Time = 1.5f;
                 break;
             case "Stage3":
-                fireCount = 3;
-                Time = 2.0f;
+                fireCount = 2;
+                Time = 1.0f;
                 _lastStage = true;
                 break;
             default:
